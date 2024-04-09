@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
+import FalconImage from './FalconImage/falconImage';
+import Fuel from './Fuel/Fuel';
+import CountDown from './CountDown/CountDown';
+import {useState} from 'react'
 function App() {
+  const [fuelStatus,setFuelStatus]=useState({hydrogen:0,oxygen:0})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="controlroom">
+        <h1>Mission Control Room</h1>
+        <h2>Count down</h2>
+        <Fuel fuelStatus={fuelStatus} setFuelStatus={setFuelStatus}></Fuel>
+        <CountDown></CountDown>
+      </div>
+      <div>
+        <FalconImage></FalconImage>
+      </div>
     </div>
   );
 }
